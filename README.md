@@ -32,9 +32,6 @@ DumbTerminal is used to give terminals (OS terminals or serials) a new life as a
 
 Extract .zip File to the working Directory
 
-### for OS-Terminals use
-
-In the main.py file comment all lines out that have "ser" in the line 
 
 #### Open the OS Terminal
 
@@ -44,13 +41,12 @@ In the main.py file comment all lines out that have "ser" in the line
 #### Install requirements.txt
 ```bash
 pip3 install -r requirements.txt
-python3 main.py 
+python3 Terminal.py or Serial.py
 ```
 
-Change API Parameters here 
+Change API Parameters here and change the params code in the specific python file
 
-
-[External Link to Change API Parameters]([External Tutorial how to make an .venv enviroment](https://mothergeo-py.readthedocs.io/en/latest/development/how-to/venv.html))
+[External Link for Weather API changes](https://open-meteo.com/en/docs)
 
 
 ### When you use DumbTerminal for Serial Connections
