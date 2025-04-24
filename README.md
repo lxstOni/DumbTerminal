@@ -49,7 +49,7 @@ pip3 install -r requirements.txt
 
 
 #### Start the APP
-you need Administrator Terminal(on Windows). On Linux you need need to be sudo User(root)
+you need to be Administrator on Windows. On Linux you need to be sudo User(root)
 
 ```bash
 python3 Terminal.py or Serial.py
