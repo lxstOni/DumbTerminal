@@ -159,7 +159,7 @@ def main():
     total_views = 3
     
     try:
-        #ser = serial_connection()
+        ser = serial_connection()
         
         def change_view(direction):
             nonlocal current_view
@@ -188,7 +188,7 @@ def main():
                 
                 print(display_text)
                 print("\nUse ← → arrow keys to change views")
-                #ser.write(display_text.encode())
+                ser.write(display_text.encode())
                 
                 last_time = current_time_value
                 last_date = current_date_str
@@ -197,11 +197,11 @@ def main():
             
     except KeyboardInterrupt:
         print("\nProgram stopped by user")
-        #ser.close()
+        ser.close()
     except Exception as e:
         print(f"\nError: {str(e)}")
         if 'ser' in locals():
-            #ser.close()
+            ser.close()
             pass
 
 if __name__ == '__main__':

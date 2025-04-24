@@ -47,6 +47,7 @@ pip3 install -r requirements.txt
 python3 main.py 
 ```
 
+Change API Parameters here [External Link to Change API Parameters]([External Tutorial how to make an .venv enviroment](https://mothergeo-py.readthedocs.io/en/latest/development/how-to/venv.html))
 
 
 ### When you use DumbTerminal for Serial Connections
