@@ -44,7 +44,7 @@ pip3 install -r requirements.txt
 python3 Terminal.py or Serial.py
 ```
 
-Change API Parameters here and change the params code in the specific python file
+#### Change API Parameters here and change the params code in the specific python file
 
 [External Link for Weather API changes](https://open-meteo.com/en/docs)
 
