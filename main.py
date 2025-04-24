@@ -2,9 +2,7 @@ import serial
 import time
 import openmeteo_requests
 import requests_cache
-import pandas as pd
 from retry_requests import retry
-from dotenv import load_dotenv
 import os
 import platform
 import pyfiglet
@@ -72,19 +70,19 @@ def clear_screen():
 def format_clock_weather_view(time_str, date_str, weather_data):
     columns, rows = get_terminal_size()
     
-    # Create large time display
+    # Große Zeitanzeige erstellen
     large_time = create_large_text(time_str)
     large_time_lines = large_time.split('\n')
     
-    # Center each line
+    # Jede Zeile zentrieren
     centered_output = []
     for line in large_time_lines:
         centered_output.append(center_text(line, columns))
     
-    # Add centered date
+    # Zentriertes Datum hinzufügen
     centered_output.append('\n' + center_text(date_str, columns))
     
-    # Add weather information with larger text
+    # Wetterinformationen mit größerem Text hinzufügen
     if weather_data:
         temp_text = f"{weather_data['temp_min']:.1f}°C - {weather_data['temp_max']:.1f}°C"
         large_temp = create_large_text(temp_text, font='small')
@@ -100,22 +98,20 @@ def format_clock_weather_view(time_str, date_str, weather_data):
 
 def format_weather_only_view(weather_data):
     columns, rows = get_terminal_size()
-    
     centered_output = []
     
-    # Add title
-    title = create_large_text("Weather", font='small')
+    # Titel hinzufügen
+    title = create_large_text("Weather", font='cosmic')
     for line in title.split('\n'):
         centered_output.append(center_text(line, columns))
     
     if weather_data:
-        # Temperature
+        # Temperatur
         temp_text = f"{weather_data['temp_min']:.1f}°C - {weather_data['temp_max']:.1f}°C"
         large_temp = create_large_text(temp_text, font='standard')
         for line in large_temp.split('\n'):
             centered_output.append(center_text(line, columns))
-            
-        # Sun times
+        # Sonnenzeit
         sunrise_text = f"Sunrise: {weather_data['sunrise']}"
         sunset_text = f"Sunset: {weather_data['sunset']}"
         
@@ -137,16 +133,16 @@ def format_weather_only_view(weather_data):
 def format_clock_only_view(time_str, date_str):
     columns, rows = get_terminal_size()
     
-    # Create extra large time display
+    # Extra große Zeitanzeige erstellen
     large_time = create_large_text(time_str, font='standard')
     large_time_lines = large_time.split('\n')
     
-    # Center each line
+    # Jede Zeile zentrieren
     centered_output = []
     for line in large_time_lines:
         centered_output.append(center_text(line, columns))
     
-    # Add large date
+    # Großes Datum hinzufügen
     large_date = create_large_text(date_str, font='small')
     for line in large_date.split('\n'):
         centered_output.append(center_text(line, columns))
@@ -157,13 +153,13 @@ def main():
     last_time = ""
     last_date = ""
     last_weather = None
-    weather_update_interval = 300  # Update weather every 5 minutes
+    weather_update_interval = 300  # Wetteraktualisierung alle 5 Minuten
     last_weather_update = 0
     current_view = 0  # 0: clock+weather, 1: weather only, 2: clock only
     total_views = 3
     
     try:
-        ser = serial_connection()
+        #ser = serial_connection()
         
         def change_view(direction):
             nonlocal current_view
@@ -175,7 +171,7 @@ def main():
         while True:
             current_time_value, current_date_str = current_time()
             
-            # Update weather data every 5 minutes
+            # Wetteraktualisierung alle 5 Minuten
             if time.time() - last_weather_update >= weather_update_interval:
                 last_weather = current_weather()
                 last_weather_update = time.time()
@@ -192,7 +188,7 @@ def main():
                 
                 print(display_text)
                 print("\nUse ← → arrow keys to change views")
-                ser.write(display_text.encode())
+                #ser.write(display_text.encode())
                 
                 last_time = current_time_value
                 last_date = current_date_str
@@ -201,12 +197,12 @@ def main():
             
     except KeyboardInterrupt:
         print("\nProgram stopped by user")
-        ser.close()
+        #ser.close()
     except Exception as e:
         print(f"\nError: {str(e)}")
         if 'ser' in locals():
-            ser.close()
-            
+            #ser.close()
+            pass
 
 if __name__ == '__main__':
     main()
