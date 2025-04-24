@@ -20,7 +20,7 @@ DumbTerminal is used to give terminals (OS terminals or serials) a new life as a
 
 ## Installation
 
-### Information: befor installing DumbTerminal you need to install Python first
+### Information: before installing DumbTerminal you need to install Python first
 [External Tutorial how to install Python](https://kinsta.com/knowledgebase/install-python/)
 
 
