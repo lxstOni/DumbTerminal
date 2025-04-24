@@ -41,12 +41,19 @@ Extract .zip File to the working Directory
 #### Install requirements.txt
 ```bash
 pip3 install -r requirements.txt
-python3 Terminal.py or Serial.py
 ```
 
 #### Change API Parameters here and change the params code in the specific python file
 
 [External Link for Weather API changes](https://open-meteo.com/en/docs)
+
+
+#### Start the APP
+you need Administrator Terminal(on Windows). On Linux you need need to be sudo User(root)
+
+```bash
+python3 Terminal.py or Serial.py
+```
 
 
 ### When you use DumbTerminal for Serial Connections
