@@ -9,6 +9,12 @@ import pyfiglet
 import shutil
 import keyboard
 
+
+
+######## TODO: WIFI Loglin ###############
+
+
+
 def get_terminal_size():
     columns, rows = shutil.get_terminal_size()
     return columns, rows
