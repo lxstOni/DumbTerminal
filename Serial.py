@@ -197,6 +197,8 @@ def main():
             
     except KeyboardInterrupt:
         print("\nProgram stopped by user")
+        os.remove(".cache.sqlite")
+        print("\nCache File deleted")
         ser.close()
     except Exception as e:
         print(f"\nError: {str(e)}")

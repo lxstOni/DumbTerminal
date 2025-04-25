@@ -265,6 +265,8 @@ def main():
             
     except KeyboardInterrupt:
         print("\nProgramm vom Benutzer beendet")
+        os.remove(".cache.sqlite")
+        print("\nCache File deleted")
         if ssh_client:
             ssh_client.close()
     except Exception as e:

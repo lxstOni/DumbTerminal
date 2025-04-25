@@ -3,6 +3,7 @@ import openmeteo_requests
 import requests_cache
 from retry_requests import retry
 import os
+import sys
 import platform
 import pyfiglet
 import shutil
@@ -59,8 +60,11 @@ def current_weather():
 def clear_screen():
     if platform.system() == "Windows":
         os.system("cls")
+        sys.stdout.flush()
     else:
         os.system("clear")
+        sys.stdout.flush()
+
 
 def format_clock_weather_view(time_str, date_str, weather_data):
     columns, rows = get_terminal_size()
@@ -189,7 +193,10 @@ def main():
             
     except KeyboardInterrupt:
         print("\nProgram stopped by user")
-        
+        os.remove(".cache.sqlite")
+        print("\nCache File deleted")
+
 
 if __name__ == '__main__':
     main()
+    
